@@ -26,6 +26,8 @@ for (i = size - 1; i > 0; i--)
 			array[j] = array[j + 1];
 			/* le chiffre suivant prend la valeur de temp*/
 			array[j + 1] = temp;
+			/* call print_array pour print size elements de array à imprimer */
+			print_array(array, size);
 		}
 	}
 }
