@@ -53,24 +53,20 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 
 /**
  * quick_sort_recursive - Recursively sorts an array using quick sort
- *
  * @array: The array to be partitioned
  * @low: The start of the array
  * @high: The end of the array
  * @size: The size of the array
- *
  * Return: Nothing
  */
 
 void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
-	int lom;
-
 	/* verifie que les indices sont valides */
 	if (low < high)
 	{
 		/* partitionner le tableau et obtenir indice du pivot */
-		lom = lomuto_partition(array, low, high, size);
+		int lom = lomuto_partition(array, low, high, size);
 
 		/* Appliquer le tri rapide sur le sous-tableau gauche */
 		quick_sort_recursive(array, low, lom - 1, size);
@@ -83,17 +79,15 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
 /**
  * quick_sort - Function that sorts an array of integers
  * in ascending order using the Quick sort algorithm
- *
  * @array: The array to sort
  * @size: the size of the array
- *
  * Return: Nothing
  */
 
 void quick_sort(int *array, size_t size)
 {
 	/*  verifie si le tableau est non NULL */
-	if (array == NULL)
+	if (array == NULL || size < 2)
 		return;
 
 	/* appel la fonction récursive pour trier le tableau */
