@@ -24,13 +24,12 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 			lom++;	/* incremente indice du plus grand élement */
 
 			/*  échanger array(lom) et array(j) si lom et j sont different */
-			if (lom != j)
+			if (lom + 1 != high)
 			{
-				temp = array[lom];
-				array[lom] = array[j];
-				array[j] = temp;
-
-				/* affiche état actuel du tableau apres echange */
+				temp = array[lom + 1];
+				array[lom + 1] = array[high];
+				array[high] = temp;
+				
 				print_array(array, size);
 			}
 		}
