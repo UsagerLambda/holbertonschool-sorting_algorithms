@@ -34,11 +34,11 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 			}
 		}
 	}
-	if (lom + 1 != high)
+	if (lom != j)
 	{
-		temp = array[lom + 1];
-		array[lom + 1] = array[high];
-		array[high] = temp;
+		temp = array[lom];
+		array[lom] = array[j];
+		array[j] = temp;
 		print_array(array, size);
 	}
 	/* retourne indice du pivot */
