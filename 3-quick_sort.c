@@ -36,7 +36,7 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 		}
 	}
 
-	/* placer le pivot a sa position finale */ 
+	/* placer le pivot a sa position finale */
 	/* apres le dernier élément plus petit */
 	if (lom + 1 != high)
 	{
