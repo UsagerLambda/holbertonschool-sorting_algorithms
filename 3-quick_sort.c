@@ -30,16 +30,21 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 				array[lom] = array[j];
 				array[j] = temp;
 				
+				/* affiche état actuel du tableau apres echange */
 				print_array(array, size);
 			}
 		}
 	}
+
+	/* placer le pivot a sa position finale */
+	/* apres le dernier élément plus petit */
 	if (lom + 1 != high)
 	{
 		temp = array[lom + 1];
 		array[lom + 1] = array[high];
 		array[high] = temp;
-		
+
+		/* affiche etat actuel du tableau apres echange du pivot */
 		print_array(array, size);
 	}
 	/* retourne indice du pivot */
