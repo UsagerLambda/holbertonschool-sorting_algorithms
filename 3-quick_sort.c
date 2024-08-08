@@ -13,7 +13,7 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 {
 	/* choisir le dernier élément comme pivot */
 	int pivot = array[high];
-	int j, temp, lom = low - 1;
+	int j, temp, i = low - 1;
 
 	/* parcourir le tableau de low a high -1 */
 	for (j = low; j <= high - 1; j++)
@@ -21,16 +21,16 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 		/* si élément actuel est inferieur au pivot */
 		if (array[j] < pivot)
 		{
-			lom++;	/* incremente indice du plus grand élement */
+			i++;
 
 			/*  échanger array(lom) et array(j) si lom et j sont different */
-			if (lom != j)
+			if (i != j)
 			{
-				temp = array[lom];
-				array[lom] = array[j];
+				temp = array[i];
+				array[i] = array[j];
 				array[j] = temp;
-				
-				/* affiche état actuel du tableau apres echange */
+
+				/* affiche état actuel du tableau après echange */
 				print_array(array, size);
 			}
 		}
@@ -38,17 +38,17 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 
 	/* placer le pivot a sa position finale */
 	/* apres le dernier élément plus petit */
-	if (lom + 1 != high)
+	if (i + 1 != high)
 	{
-		temp = array[lom + 1];
-		array[lom + 1] = array[high];
+		temp = array[i + 1];
+		array[i + 1] = array[high];
 		array[high] = temp;
 
 		/* affiche etat actuel du tableau apres echange du pivot */
 		print_array(array, size);
 	}
 	/* retourne indice du pivot */
-	return (lom + 1);
+	return (i + 1);
 }
 
 /**
@@ -66,13 +66,13 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
 	if (low < high)
 	{
 		/* partitionner le tableau et obtenir indice du pivot */
-		int lom = lomuto_partition(array, low, high, size);
+		int i = lomuto_partition(array, low, high, size);
 
 		/* Appliquer le tri rapide sur le sous-tableau gauche */
-		quick_sort_recursive(array, low, lom - 1, size);
+		quick_sort_recursive(array, low, i - 1, size);
 
 		/* Appliquer le tri rapide sur le sous-tableau droit */
-		quick_sort_recursive(array, lom + 1, high, size);
+		quick_sort_recursive(array, i + 1, high, size);
 	}
 }
 
