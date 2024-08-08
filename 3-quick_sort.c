@@ -24,11 +24,11 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 			i++;
 
 			/*  échanger array(lom) et array(j) si lom et j sont different */
-			if (i + 1 != high)
+			if (i != j)
 			{
-				temp = array[i + 1];
-				array[i + 1] = array[high];
-				array[high] = temp;
+				temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
 
 				/* affiche état actuel du tableau après echange */
 				print_array(array, size);
