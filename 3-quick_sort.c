@@ -13,7 +13,7 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 {
 	/* choisir le dernier élément comme pivot */
 	int pivot = array[high];
-	int j, temp, i = low - 1;
+	int j, temp, i = low;
 
 	/* parcourir le tableau de low a high -1 */
 	for (j = low; j <= high - 1; j++)
@@ -21,8 +21,6 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 		/* si élément actuel est inferieur au pivot */
 		if (array[j] < pivot)
 		{
-			i++;
-
 			/*  échanger array(lom) et array(j) si lom et j sont different */
 			if (i != j)
 			{
@@ -33,19 +31,19 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 				/* affiche état actuel du tableau après echange */
 				print_array(array, size);
 			}
+			i++;
 		}
 	}
 
-	if (i + 1 != high)
+	if (i != high)
 	{
-		temp = array[i + 1];
-		array[i + 1] = array[high];
+		temp = array[i];
+		array[i] = array[high];
 		array[high] = temp;
-
 		print_array(array, size);
 	}
 	/* retourne indice du pivot */
-	return (i + 1);
+	return (i);
 }
 
 /**
