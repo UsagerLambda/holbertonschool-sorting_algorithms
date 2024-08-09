@@ -18,10 +18,10 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 	/* parcourir le tableau de low a high -1 */
 	for (j = low; j <= high - 1; j++)
 	{
-		/* si élément actuel est inferieur au pivot */
+		/* si élément actuel est inferieur ou egal au pivot */
 		if (array[j] <= pivot)
 		{
-			/*  échanger array(lom) et array(j) si lom et j sont different */
+			/*  échanger array(i) et array(j) si i et j sont different */
 			if (i != j)
 			{
 				temp = array[i];
